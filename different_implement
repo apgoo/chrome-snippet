@@ -1,0 +1,9 @@
+function imple(arr) {
+    let value= '';
+    for(let i = arr.length -1; i >= 0; i--) {
+        value += arr[i];
+    }
+    return value
+}
+
+Number(imple([5,4,3,2,1]));

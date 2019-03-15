@@ -1,0 +1,80 @@
+//get specify digit in array element in each loop for radixSort() function 
+function getDigit(num, i) {
+    return Math.floor(Math.abs(num) / Math.pow(10,i)) % 10;
+}
+// num    i  abs  /   pow  <= (10  i)      floor  % 10   return
+// [2]    0   2   /    1       10  0         2      10      2
+// [55]   0   55  /    1       10  0         55     10      5
+// [897]  0  897  /    1       10  0        897     10      7   
+// [1236] 0  1236 /    1       10  0       1236     10      6 
+//[30205] 0 30205 /    1       10  0       30205    10      5
+// [2325] 0  2325 /    1       10  0       2325     10      5
+
+//=-========================================================//
+
+////how many digit in each element 
+function digitCount(num) {
+    if(num === 0) return 1;
+    return Math.floor(Math.log10(num)) + 1;
+}
+//[2], [55],[897],[1236],[30205],[2325] each loop call digicCount
+// num  log10     floor    m+1  r
+//  2   0.301       0      0+1 =1
+// 55   1.740       1      1+1 =2
+// 897   2.9        2      2+1 =3
+//1236   3.092      3      3+1 =4 
+//30205  4.408      4      4+1 =5       
+//2325   3.366      3      3+1 =4      
+
+//========================================================//
+
+////which element got highest digit [30205] => 5 is the most  digit
+function mostDigit(arr) {
+    let maxNum = 0;
+    for(let i = 0; i< arr.length; i++) {
+        maxNum = Math.max(maxNum, digitCount(arr[i]));
+    } 
+    return maxNum; //5
+};
+//[2,55,897,1236,30205,2325] //mostDigit
+// i      mN   max(dC)    mN - r   
+// 2       0     1        1   
+// 55      1     2        2
+//897      2     3        3
+//1236     3     4        4  
+//30205    4     5        5
+//2325     5     4        5    5  <====               
+///============================================//
+
+
+///radix sort logics
+function radixSort(arr) {
+    let maxDigit = mostDigit(arr); // 5 log10
+    for(let k = 0; k < maxDigit; k++) {
+        let digitBucket = Array.from({length: 10}, function() { return []});
+        for(let i= 0; i <arr.length; i++) {
+            let digit = getDigit(arr[i], k);
+            digitBucket[digit].push(arr[i]);
+        }
+        arr = [].concat(...digitBucket);
+    } 
+    return arr;
+} 
+
+radixSort([2,55,897,1236,30205,2325]); 
+
+// ex: for first one loop underhood
+// k <  mD   i < 6  [i] , k =>  D  i  <=  db(push)0-9arrs                                          
+// 0 <  5    0 < 6  [2]   0 =>  2  2       arr 2
+// 0 <  5    1 < 6 [55]   0 =>  5  55      arr 5 
+// 0 <  5    2 < 6 [897]  0 =>  7  897     arr 7
+// 0 <  5    3 < 6 [1236] 0 =>  6  1236    arr 6
+// 0 <  5    4 < 6[30205] 0 =>  5  30205   arr 5
+// 0 <  5    5 < 6 [2325] 0 =>  5  2325    arr 5   0    1   2   3  4    5                6      7    8    9          
+// 0 <  5    6 < 6    --  ------------------------[-], [-],[2],[],[], [55,30205.2325], [1236], [897], [-] ,[-]                                                    
+
+//k = 0  1st loop => [2, 55, 30205, 2325, 1236, 897];
+//k = 1  2nd loop => [2, 30205, 2325, 1236, 55, 897];  
+//k = 2  3d  loop => [2, 55, 30205, 1236, 2325, 897];  
+//k = 3  4th loop => [2, 55, 30205, 897, 1236, 2325];
+//k = 4  5th loop => [2, 55, 897, 1236, 2325, 30205]

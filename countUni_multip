@@ -1,0 +1,23 @@
+function countUniq(arr) {
+    if(arr.length === 0) return 0;
+
+    let i = 0;
+    for(let j = 1; j < arr.length; j++ ) {
+        if(arr[i] !== arr[j]) {
+            i++; //increase index value
+            arr[i] = arr[j];
+           // console.log(arr[i]); 
+        }
+       
+    }
+    // console.log(i)
+    return i + 1;
+}
+                               
+//countUniq([1,2,3,4,5,5,4,6,6,2]);
+//countUniq([1,1,1,1,1,2]);
+//countUniq([]);
+countUniq([1,99]);
+//countUniq([1,1,1,1,2,2,3,3,5,5,5,5,5,6]);
+
+                             

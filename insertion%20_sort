@@ -1,0 +1,27 @@
+function insertion(arr){
+    for(let i = 1; i < arr.length; i++) {
+        let curVal = arr[i]; 
+        for(let j = i - 1; j >= 0 && arr[i] > curVal; j--) {
+            if(arr[j] < curVal) {
+                j = curVal;
+            }
+        }
+    }
+    return arr;
+}
+
+insertion([4,5,1,3,2])
+//i=1; j=i-1=0 j>=0 = 4(1loop); & 5 > 5
+//i=2; j=i-1=1 j>=0 = 5,4(2loop); 1 > 1
+//i=3; j=i-1=2 j>=0 = 1,5,4(3loop); 3 > 3 
+//i=4; j=i-1=3 j>=0 = 3,1,5,4(4loop); 2>2
+
+
+
+function revers(ar) {
+    for(let i = ar.length; i > 0; i--) {
+        console.log(i)
+    }
+
+}           
+//revers([1,2,3,4,5])

@@ -1,0 +1,20 @@
+function charCout(strings) {
+    var obj = {}
+    for(var charas of strings) {
+        charas = charas.toLowerCase();
+        if(isAlpaNum(charas))
+        obj[charas] = ++obj[charas] || 1;
+    }
+    return obj
+}
+function isAlpaNum(char) {
+    var code = char.charCodeAt(0)
+    if(!(code > 47 && code < 58) &&
+       !(code > 64 && code < 91) &&
+       !(code > 96 && code < 123)) {
+           return false;
+       }
+       return true;
+} 
+
+charCout("hi Hello");

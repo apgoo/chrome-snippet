@@ -1,0 +1,10 @@
+function numCompare(num1, num2) {
+    return num2 - num1 
+}
+[30,60,10,50,40,20].sort(numCompare);
+
+
+function strLength(str1,str2) {
+    return str1.length - str2.length;
+}
+['js','python','golang','c++','java'].sort(strLength);

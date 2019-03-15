@@ -1,0 +1,13 @@
+/*let persion = {
+    fName: 'ap',
+    lName : 'google',
+    isMarrid: false,
+    dob : [12,31,1995]
+}
+//Object.keys(persion);
+//Object.values(persion);
+//Object.entries(persion);
+//persion.hasOwnProperty("fName");
+*/
+
+

@@ -1,0 +1,17 @@
+function collectOdd(arr) {
+    let result = [];
+
+    function helper(helperIn) {
+        if(helperIn.length === 0) {
+            return
+        } 
+        if(helperIn[0] % 2 !== 0) {
+            result.push(helperIn[0]);
+        }
+
+        helper(helperIn.slice(1));
+    }
+    helper(arr);
+    return result;
+}
+collectOdd([1,2,3,4,5,6,7]);

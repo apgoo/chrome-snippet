@@ -1,0 +1,36 @@
+/*
+//es5
+function selection(arr) {
+    for(let i = 0; i < arr.length; i++) {
+        let lower = i;
+        for(let j = i+1; j < arr.length; j++) {   
+            if(arr[j] < arr[lower]) lower = j;
+        } 
+       
+        if(i !== lower) { console.log(i,lower);
+            let temp = arr[i];
+            arr[i] = arr[lower];
+            arr[lower] = temp;
+        } 
+    }
+    return arr
+}
+selection([1,2,32,26,10,15,21]);
+//i = 0, j=1 = j < 
+
+*/
+
+function selection(arr) {
+    for(let i = 0; i < arr.length; i++) {
+        let lower = i;
+        for(let j = i+1; j < arr.length; j++) {   
+            if(arr[j] < arr[lower]) lower = j;
+        } 
+       
+        if(i !== lower) { console.log(i,lower);
+            [arr[i],arr[lower]] = [arr[lower],arr[i]]
+        } 
+    }
+    return arr
+}
+selection([1,2,32,26,10,15,21]);

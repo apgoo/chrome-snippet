@@ -1,0 +1,15 @@
+function colletctOddalue(arr) {
+    let newArr = [];
+
+    if(arr.length === 0) return newArr;
+
+    if(arr[0] % 2 !== 0) {
+        newArr.push(arr[0]);
+    }
+
+    newArr = newArr.concat(colletctOddalue(arr.slice(1)));
+
+    return newArr;
+}
+
+colletctOddalue([2,4,6,8,3,10,1]);

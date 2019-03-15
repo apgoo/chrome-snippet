@@ -1,0 +1,63 @@
+/*(function subtract(num) {
+    if(num === 0 ) {
+        console.log('all done');
+        return;
+     }
+     console.log(num);
+     num--;
+     subtract(num);
+}(6));
+
+///
+
+(function sumRage(n) {
+    if(n === 1) return 1;
+    return n + sumRage(n-1);
+}(4));
+
+
+
+
+/////factorial naive
+(function fact(num) {
+    let total = 1;
+    for(let i = num; i > 1; i--) {
+        total *= i;
+    }
+    return total;
+}(3));
+
+
+
+
+
+
+////factorial recursive;
+function facts(num) {
+   // if(num === 1) return 1;
+  
+    return num * facts(num-1);
+}
+facts(5)
+
+*/
+
+
+
+////helper methode 
+
+(function collectOdd(arr) {
+    let result = [];
+    function helper(input) {
+        if(input.length ===  0) {
+            return;
+        }
+        if(input[0] %2 !== 0) {
+            result.push(input[0]);
+        }
+        helper(input.slice(1))
+        
+    }
+    helper(arr);
+    return result;
+}([2,3,5,6,7,8,10]))

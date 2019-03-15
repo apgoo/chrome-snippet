@@ -1,0 +1,14 @@
+function compaNum(num1, num2) {
+    return num2 - num1;
+    //return num1 - num2;
+}
+
+[4,2,7,5,9,23].sort(compaNum);
+
+
+function sortString(str1, str2) {
+   return str1.length - str2.length;
+   // return str2.length - str1.length;
+}
+
+["pintrest", "fb", "google", "data structure", "microsoft"].sort(sortString);

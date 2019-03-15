@@ -1,0 +1,41 @@
+/*(function sumZero(arr) {
+    for(let i = 0; i < arr.length; i++){
+        for(let j = i+1; j < arr.length; j++){
+            if(arr[i] + arr[j] === 0 ){
+                return [arr[i], arr[j]]
+            }
+        }
+    }
+}([-3,-2,-1,0,1,2,3]))*/
+
+
+function mutiPoint(arr) {
+    let start = 0;
+    let end = arr.length-1;
+    while(start < end) {
+        let sum = arr[start] + arr[end];
+        if(sum === 0) return [arr[start] , arr[end]];
+        else if(sum > 0 ) end--;
+        else start++;
+   }
+}
+
+//mutiPoint([-3,-2,-1,0,1,2,4,5]); 
+ 
+
+function countUniq(arr) {
+    if(arr.length === 0) return 0;
+    let i = 0;
+    for(let j = 1; j < arr.length; j++){
+        if(arr[i] !== arr[j]) {
+            i++;
+            arr[i] = arr[j];
+        }
+    }
+    return i + 1;
+}
+//                     i=5 7     
+//countUniq([1,1,2,3,3,3,4,4,7])
+//                           j=8 7  
+
+countUniq([-1,1,1,2,6,7,8,8,8]);

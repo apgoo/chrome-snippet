@@ -1,0 +1,22 @@
+function chartCount(string) {
+    //create empty obj and return
+    var result = {};
+    //loop over the string for each chara..
+    for(var i = 0; i < string.length; i++) {
+        var chara = string[i].toLowerCase();
+        //if the char is num/lertter and key in obj, add one to count
+        if(result.chara > 0) {
+            result[chara]++;
+        }
+        //if the char is num/lertter and not in obj add it to obj and set value
+        else{
+           result[chara] = 1
+        }
+    }
+    return result;
+    
+}
+
+chartCount('Hello hi')
+
+

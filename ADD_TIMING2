@@ -1,0 +1,9 @@
+function addUpto(n) {
+  return  n * (n + 1) / 2
+}
+
+
+var at1 = performance.now();
+addUpto(1000000000);
+var bt2 = performance.now()
+console.log(`Time Elapsed : ${(bt2 - at1) / 1000} second`);

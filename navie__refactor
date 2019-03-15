@@ -1,0 +1,36 @@
+function same(arr1, arr2) {
+    if(arr1.length !== arr2.length) {
+        return false;
+    }
+
+    var freqCount1 = {};  
+    var freqCount2 = {};  
+
+    for(var val1 of arr1) {
+        if(val1 === -1) {
+            return false
+        }
+        freqCount1[val1] = ( freqCount1[val1] || 0 ) + 1;
+        console.log(freqCount1);
+    }
+
+    for(var val2 of arr2) {
+        freqCount2[val2] = ( freqCount2[val2] || 0 ) + 1;
+       
+    }
+   // console.log(freqCount1);
+  //  console.log(freqCount2);
+
+    for(let keys in freqCount1) {
+        if(!(keys ** 2 in freqCount2)) {
+            return false;
+        }
+        if(freqCount2[keys ** 2] !== freqCount1[keys]) {
+            return false;
+
+        }
+    }
+    return true;
+}
+
+same([1,2, 3, 4, 5], [4,1,9, 25, 16]);

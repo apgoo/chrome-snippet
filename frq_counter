@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function same(arr1, arr2) {
+    if(arr1.length !== arr2.length) return false;
+
+    for(let i = 0; i < arr1.length; i++) {
+        let correctInd = arr2.indexOf(arr1[i] ** 2);
+
+          if(correctInd === -1) return false;
+          arr2.splice(correctInd, 1);
+            
+    }
+    return true;
+ }
+
+// same([1,2,4],[1,4,16]);
+
+(function sames(arr1, arr2) {
+    if(arr1.length !== arr2.length) return false;
+
+    frqCount1 = {};
+    frqCount2 = {};
+    for(let val1 of arr1) {
+        frqCount1[val1] = (frqCount1[val1] || 0) + 1;
+    }
+    for(let val2 of arr2) {
+        frqCount2[val2] = (frqCount2[val2] || 0) + 1;
+    }
+
+    for(let key in frqCount1) {
+        if(!(key ** 2 in frqCount2)) return false;
+        if(frqCount2[key ** 2] !== frqCount1[key]) return false;
+    }
+    return true;
+}([1,2,4],[1,4,16])); 
+

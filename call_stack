@@ -1,0 +1,19 @@
+function takeShower() {
+    return "showering"
+}
+function eatBf() {
+    let meal = cooking();
+        return `eating ${meal}`
+}
+
+function cooking() {
+    let items = ["sambarMeal", "gurd Meal", "lemon rice"]
+    return items[Math.floor(Math.random()*items.length)];
+}
+
+function wakeup() {
+    takeShower();
+    eatBf();
+    console.log("ok ready to go")
+}
+wakeup();

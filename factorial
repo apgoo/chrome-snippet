@@ -1,0 +1,19 @@
+function factorials(num) {
+    let total = 1;
+    for(let i = num; i > 0; i--) {
+        total *= i;
+    }
+    return total
+}
+//factorials(5)
+
+
+
+function fact(num) {
+            
+    if(num === 1) return 1;
+
+    return num * fact(num-1);
+          
+}
+fact(2)

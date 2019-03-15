@@ -1,0 +1,7 @@
+function sameRage(num) {
+ 
+    if(num === 1) return 1;
+    
+    return num + sameRage(num-1);
+}
+sameRage(6);  

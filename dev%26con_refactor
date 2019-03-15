@@ -1,0 +1,27 @@
+function search(arr, val) {
+    let min = 0;
+    let max = arr.length - 1; 
+    console.log(max);
+        // 0 <=  7 
+   while(min <= max) {
+       // 2,5,3,6 
+         let mid = Math.floor((min + max) / 2);
+         let currSec = arr[mid];
+         console.log(currSec);
+      //  2,3,4,5       11     
+         if(arr[mid] < val) {
+             console.log(arr[mid] < val)
+           //       3 = 2i + 1i   
+             min = mid + 1 ;
+         }
+         else if(arr[mid] > val) {
+            max = mid -1;
+         }
+         else {
+             return mid
+         }  
+   }
+    return -1
+}
+search([2, 3, 4, 5, 6, 9, 11,12], 4);
+

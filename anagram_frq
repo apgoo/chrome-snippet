@@ -1,0 +1,22 @@
+function charCount(one, two) {
+    if(one.length !== two.length) return false;
+    let obj = {};
+
+    for(let i = 0; i < one.length; i++) {
+       let charac = one[i];
+
+       obj[charac] ? obj[charac] += 1  : obj[charac] = 1;
+      // 2 g, 2 o, 1 l , 1 e   
+       
+    }
+        console.log(obj);
+    for(let i = 0; i < two.length; i++) {
+        let charas = two[i];
+       
+        if(!obj[charas]) return false;
+        else obj[charas] -= 1;
+    }
+    return true;
+}
+
+charCount('googles', 'ooggler');

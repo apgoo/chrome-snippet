@@ -1,0 +1,30 @@
+function anagrams(str1, str2) {
+    if(str1.length !== str2.length) {
+        return false;
+    }
+    
+    const obj = {};
+
+    for(let i = 0; i < str1.length; i++) {
+        let alpha = str1[i];
+        obj[alpha] ? obj[alpha] += 1 : obj[alpha] = 1;
+        console.log(alpha)
+    }
+
+    for(let i = 0; i < str2.length; i++) {
+        let alphas = str2[i];
+        console.log(obj[alphas])
+      // can't find letter or lettter is zero is not anagrams
+        if(!obj[alphas]) {
+            return false;
+        }
+        else {
+            obj[alphas] -= 1 
+        }
+    }
+    console.log(obj)
+    return true;
+}
+
+
+anagrams('cat', 'act');

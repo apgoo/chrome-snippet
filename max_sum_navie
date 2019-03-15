@@ -1,0 +1,22 @@
+function sumSubarry(arr,num) {
+    if(num > arr.length) { //3>7 false
+        return null
+    }
+    let max = -Infinity; //7 - 3 = 4         2
+    for(let i = 0; i < arr.length - num + 1; i++) {
+        temp = 0  
+
+        for(let j = 0; j < num; j++) {
+            temp += arr[i + j];
+            console.log()
+        } // 1  > -infinity
+        if(temp > max) {
+            max = temp;
+        }
+    console.log(temp,max)
+    }
+    return max;
+}
+
+sumSubarry([3,5,4,8,7,1,2], 3);
+//             [4+8+7]

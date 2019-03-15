@@ -1,0 +1,13 @@
+function addUp(n) {
+    let total = 0;
+    for(let i = 1; i <= n; i++ ) {
+       
+        total += i 
+    }
+    return total;
+}
+
+var at1 = performance.now();
+addUp(1000000000);
+var bt2 = performance.now()
+console.log(`Time Elapsed : ${(bt2 - at1) / 1000} second`);
